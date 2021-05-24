@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: Montserrat, sans-serif;
+  background-color: #1e1e1e;
+  color: white;
+  /* box-sizing: border-box; */
+}
+
+.top {
+  height: 30%;
+}
+
+.main {
+  height: 100%;
+  display: flex;
+}
+
+.editor-pane {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#editor {
+  height: 100%;
+  border: solid 1px grey;
+  border-top: none;
+}
+
+.output-pane {
+  width: 100%;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tab {
+  border: 1px solid grey;
+  padding: 2px 5px;
+  cursor: pointer;
+  color: gray;
+}
+
+.tab.active {
+  border-bottom: 0;
+  color: white;
+}
+.runbtn {
+  border: 1px solid grey;
+  padding: 2px 5px;
+  cursor: pointer;
+}
