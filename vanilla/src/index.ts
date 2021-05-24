@@ -2,6 +2,7 @@ import "./style.css";
 import * as monaco from "monaco-editor";
 import p5Def from "./p5.global.txt";
 import { emmetHTML, emmetCSS } from "emmet-monaco-es";
+import * as Snippets from "./snippets.json";
 
 emmetHTML(monaco);
 emmetCSS(monaco);
@@ -38,6 +39,29 @@ monaco.languages.registerCompletionItemProvider("html", {
           },
         },
       ],
+    };
+  },
+});
+
+monaco.languages.registerCompletionItemProvider("javascript", {
+  provideCompletionItems(model, position) {
+    const word = model.getWordUntilPosition(position);
+    const range = {
+      startLineNumber: position.lineNumber,
+      endLineNumber: position.lineNumber,
+      startColumn: word.startColumn,
+      endColumn: word.endColumn,
+    };
+    return {
+      suggestions: Snippets.map(({ prefix, body, description }) => ({
+        label: prefix,
+        kind: monaco.languages.CompletionItemKind.Snippet,
+        documentation: description,
+        insertText: body.join("\n"),
+        range,
+        insertTextRules:
+          monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+      })),
     };
   },
 });
@@ -186,3 +210,9 @@ buttons.forEach((x, i) => (x.onclick = tabClickHandler(i)));
 // myConsole.onNewMessage(() => {
 //   DOMConsole.innerText = myConsole.messages.join("\n");
 // });
+
+// for (const [name, snippet] of Object.entries(Snippets)) {
+//   snippet.
+// }
+
+// const x: monaco.languages.ProviderResult<>
