@@ -52,6 +52,8 @@ monaco.languages.typescript.javascriptDefaults.setDiagnosticsOptions({
 
 monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
   allowNonTsExtensions: true,
+  allowJs: true,
+  checkJs: true,
 });
 
 fetch(p5Def)
@@ -139,7 +141,11 @@ editor.addAction({
 
 runner.onclick = reloadFrame;
 
-onresize = () => editor.layout();
+onresize = () =>
+  editor.layout({
+    width: document.querySelector(".main").clientWidth / 2,
+    height: editor.getDomNode().clientHeight,
+  });
 
 function tabClickHandler(i: number) {
   return () => {

@@ -30,6 +30,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+.editor-container {
+  height: 100%;
+}
 
 #editor {
   height: 100%;
