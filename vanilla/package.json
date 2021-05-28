@@ -13,6 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/p5": "^0.9.1",
+    "@types/prettier": "^2.2.3",
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^1.6.0",
     "monaco-editor-webpack-plugin": "^3.1.0",
@@ -23,11 +24,15 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@types/eslint": "^7.2.12",
     "css-loader": "^5.2.5",
     "emmet-monaco-es": "^4.6.2",
+    "eslint": "^7.27.0",
     "file-loader": "^6.2.0",
+    "loop-protect": "^2.1.6",
     "monaco-editor": "^0.24.0",
     "p5": "^1.3.1",
+    "prettier": "^2.3.0",
     "style-loader": "^2.0.0"
   }
 }

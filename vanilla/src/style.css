@@ -37,7 +37,6 @@ body {
 #editor {
   height: 100%;
   border: solid 1px grey;
-  border-top: none;
 }
 
 .output-pane {
@@ -49,22 +48,24 @@ iframe {
   height: 100%;
 }
 
+.filepicker {
+  width: 140px;
+  flex-shrink: 0;
+}
+
+.file {
+  cursor: pointer;
+}
+
+.file:hover {
+  background-color: #333;
+}
+
 .tabs {
   display: flex;
 }
 
-.tab {
-  border: 1px solid grey;
-  padding: 2px 5px;
-  cursor: pointer;
-  color: gray;
-}
-
-.tab.active {
-  border-bottom: 0;
-  color: white;
-}
-.runbtn {
+.btn {
   border: 1px solid grey;
   padding: 2px 5px;
   cursor: pointer;

@@ -26,11 +26,14 @@ module.exports = {
       use: ['file-loader']
     }, {
       test: /\.txt$/,
-      type: 'asset/resource',
+      type: 'asset/source',
     }, {
       test: /\.css$/i,
       use: [MiniCssExtractPlugin.loader, 'css-loader'],
     }]
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [
     new MiniCssExtractPlugin(),
