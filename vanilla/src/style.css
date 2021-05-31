@@ -10,19 +10,21 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  font-family: Montserrat, sans-serif;
+  line-height: 1.2;
+  font-family: "Kumbh Sans", sans-serif;
   background-color: #1e1e1e;
   color: white;
   /* box-sizing: border-box; */
 }
 
-.top {
-  height: 30%;
+button {
+  all: unset;
 }
 
-.main {
+main {
   height: 100%;
   display: flex;
+  padding: 10px 0;
 }
 
 .editor-pane {
@@ -49,16 +51,25 @@ iframe {
 }
 
 .filepicker {
-  width: 140px;
+  width: 180px;
   flex-shrink: 0;
+}
+
+.files {
+  width: 100%;
 }
 
 .file {
   cursor: pointer;
+  padding: 5px 5px;
 }
 
 .file:hover {
   background-color: #333;
+}
+
+.file.selected {
+  background-color: #4d4d4d;
 }
 
 .tabs {
@@ -73,4 +84,47 @@ iframe {
 
 a {
   color: #3794ff;
+}
+
+.spacer {
+  width: 30px;
+  flex-shrink: 0;
+}
+
+.filepicker__title,
+.filename,
+.output__title {
+  height: 32px;
+  flex-shrink: 0;
+  align-items: center;
+  display: flex;
+}
+
+.filepicker__title {
+  padding: 0 0 0 30px;
+  border-bottom: 1px solid grey;
+}
+
+.toolbar {
+  padding: 10px 30px;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header > * {
+  display: flex;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.logo {
+  margin: 5px 10px;
 }

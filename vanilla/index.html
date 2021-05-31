@@ -7,22 +7,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>p5 Editor</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+  <link rel="icon" type="image/png" href="assets/logo.png">
 </head>
 
 <body>
-  <div class="top">
-    <h2>p5.js Editor</h2>
+  <header>
+    <div class="left">
+      <img class="logo" src="assets/logo.png" alt="logo" width="40">
+      <h2>p5.js Editor</h2>
+    </div>
+  </header>
+  <div class="toolbar">
     <div>Built with <a href="https://microsoft.github.io/monaco-editor/" target="_blank">Monaco</a></div>
     <div>Inspired by <a href="https://editor.p5js.org" target="_blank">p5.js Web Editor</a> (official)</div>
     <div><a href="https://github.com/dipamsen/p5-editor-monaco/" target="_blank">View Source Code on GitHub.</a></div>
-    <span class="runbtn btn">Run</span>
-    <span class="stopbtn btn">Stop</span>
+    <button class="runbtn btn">Run</button>
+    <button class="stopbtn btn">Stop</button>
   </div>
-  <div class="main">
+
+  <main>
+
     <div class="filepicker">
       <div class="filepicker__title">Sketch Files</div>
-      <div class="files"></div>
+      <div class="flex">
+        <div class="spacer"></div>
+        <div class="files"></div>
+      </div>
     </div>
     <div class="editor-pane">
       <div class="filename">
@@ -32,11 +44,13 @@
       </div>
       <div class="console"></div>
     </div>
+    <div class="resizer"></div>
     <div class="output-pane">
+      <div class="output__title">Preview</div>
       <iframe src="" frameborder="0" title="sketch preview"
         sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-forms allow-modals allow-downloads"></iframe>
     </div>
-  </div>
+  </main>
 </body>
 
 </html>

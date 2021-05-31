@@ -1,6 +1,9 @@
 import * as monaco from "monaco-editor";
 import { editorContainerElt, filePickerMain, mainElt } from "./DOMElements";
 
+// @ts-expect-error
+window.U = monaco.Uri;
+
 const editor = monaco.editor.create(editorContainerElt, {
   theme: "vs-dark",
   tabSize: 2,
