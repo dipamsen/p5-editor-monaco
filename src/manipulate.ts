@@ -20,7 +20,7 @@ interface Snippet {
   description: string;
 }
 
-export default async function manipulate(M: typeof monaco) {
+export default function manipulate(M: typeof monaco) {
   // EMMET support for HTML and CSS
   emmetHTML(M);
   emmetCSS(M);
@@ -94,17 +94,6 @@ export default async function manipulate(M: typeof monaco) {
     checkJs: true,
   });
 
-  // M.languages.typescript.javascriptDefaults.setExtraLibs(
-  //   await Promise.all(
-  //     LibNames.map(async (lib) => {
-  //       const m = await import("./assets/p5/" + lib);
-  //       const url = M.Uri.file(lib);
-  //       M.editor.createModel(m.default, "typescript", url);
-
-  //       return { content: m.default, filePath: "ts:" + lib };
-  //     })
-  //   )
-  // );
   const i = M.Uri.file("p5.instance.d.ts");
   M.languages.typescript.javascriptDefaults.addExtraLib(
     CustomDef,

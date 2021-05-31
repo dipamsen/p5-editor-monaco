@@ -22,7 +22,7 @@ declare class p5 {
    *   @param [node] element to attach canvas to
    *   @return a p5 instance
    */
-  constructor(sketch: (...args: any[]) => any, node?: HTMLElement);
+  constructor(sketch: (p5: p5) => any, node?: HTMLElement);
 
   /**
    *   Called directly before setup(), the preload()

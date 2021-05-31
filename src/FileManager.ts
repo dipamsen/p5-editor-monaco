@@ -9,6 +9,7 @@ import {
   openFileList,
 } from "./DOMElements";
 import { TEXT_FILE_REGEX } from "./FileUtils";
+import lintCode from "./LintCode";
 
 export class FileManager extends Array<EdFile> {
   static instance: FileManager;
@@ -56,6 +57,36 @@ export class EdFile {
     this._domElt.addEventListener("click", () =>
       manager.focus(manager.indexOf(this))
     );
+    // ESLint Linter
+    if (this.model && this.extension == "js") {
+      this.model.onDidChangeContent((event) => {
+        const mess = lintCode(this);
+        monaco.editor.setModelMarkers(
+          this.model,
+          this.model.uri.toString(),
+          mess.map((err) => ({
+            startColumn: err.column,
+            endColumn: err.endColumn,
+            endLineNumber: err.endLine,
+            startLineNumber: err.line,
+            message: "ESLint: " + err.message,
+            severity:
+              err.severity === 1
+                ? monaco.MarkerSeverity.Warning
+                : monaco.MarkerSeverity.Error,
+            code: err.ruleId
+              ? {
+                  target: monaco.Uri.parse(
+                    `https://eslint.org/docs/rules/${err.ruleId}`
+                  ),
+                  value: err.ruleId,
+                }
+              : null,
+            source: "eslint",
+          }))
+        );
+      });
+    }
   }
   get path() {
     return this.uri.path;
