@@ -1,7 +1,13 @@
 import * as monaco from "monaco-editor";
 import editor from "./EditorInstance";
 import { defaultCSS, defaultHTML, defaultJS } from "./defaultContents";
-import { fileChooser, fileNameElt, htmlToElement } from "./DOMElements";
+import {
+  closeFileList,
+  fileChooser,
+  fileNameElt,
+  htmlToElement,
+  openFileList,
+} from "./DOMElements";
 import { TEXT_FILE_REGEX } from "./FileUtils";
 
 export class FileManager extends Array<EdFile> {

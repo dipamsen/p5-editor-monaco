@@ -54,6 +54,12 @@ iframe {
   width: 180px;
   flex-shrink: 0;
 }
+.filepicker.hidden {
+  width: 0;
+  visibility: hidden;
+  user-select: none;
+  pointer-events: none;
+}
 
 .files {
   width: 100%;
@@ -127,4 +133,38 @@ header > * {
 
 .logo {
   margin: 5px 10px;
+}
+
+.resizer {
+  width: 10px;
+  cursor: col-resize;
+}
+
+.toggle-files {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  height: 100%;
+  border-radius: 3px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.toggle-files:hover {
+  background-color: rgb(4, 0, 255);
+}
+
+path {
+  fill: black;
+}
+
+.toggle-files:hover path {
+  fill: white;
+  opacity: 1;
+}
+
+.hide {
+  display: none;
 }
