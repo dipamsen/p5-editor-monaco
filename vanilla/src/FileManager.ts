@@ -36,15 +36,18 @@ export class EdFile {
   active: boolean;
   blobUrl: string | undefined;
   fileBlob: File | undefined;
+  private _domElt;
   constructor(content: string, name: string) {
     const manager = FileManager.instance;
     this.uri = monaco.Uri.file(name);
     if (this.editableAsText)
       this.model = monaco.editor.createModel(content, null, this.uri);
-    const domElt = htmlToElement(`<div class="file">${this.name}</div>`);
-
-    fileChooser.append(domElt);
-    domElt.addEventListener("click", () =>
+    this._domElt = htmlToElement(`<div class="file">
+    <button></button>
+    </div>`);
+    this._domElt.firstElementChild.textContent = this.name;
+    fileChooser.append(this._domElt);
+    this._domElt.addEventListener("click", () =>
       manager.focus(manager.indexOf(this))
     );
   }
@@ -69,10 +72,12 @@ export class EdFile {
   }
   setAsActive() {
     this.focused = true;
+    this._domElt.classList.add("selected");
     editor.setModel(this.model);
   }
   setAsInactive() {
     this.focused = false;
+    this._domElt.classList.remove("selected");
   }
   toJSON() {
     return {
