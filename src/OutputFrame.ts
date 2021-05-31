@@ -1,3 +1,5 @@
+// @flow
+
 import { consoleErrorScript } from "./defaultContents";
 import { iFrameElt } from "./DOMElements";
 import { EdFile as File } from "./FileManager";
