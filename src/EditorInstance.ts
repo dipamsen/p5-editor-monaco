@@ -12,9 +12,14 @@ const editor = monaco.editor.create(editorContainerElt, {
   "semanticHighlighting.enabled": true,
 });
 
+// @ts-ignore
+window.layout = (arg) => editor.layout(arg);
+
+editor;
+
 window.onresize = () =>
   editor.layout({
     width: (mainElt.clientWidth - filePickerMain.clientWidth) / 2,
-    height: editor.getDomNode().clientHeight,
+    height: editorContainerElt.firstElementChild.clientHeight,
   });
 export default editor;

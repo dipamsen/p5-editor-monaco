@@ -24,3 +24,5 @@ export const openFileList =
 
 export const closeFileList =
   document.querySelector<HTMLButtonElement>(".close-files");
+
+export const consoleLogs = document.querySelector<HTMLDivElement>(".console");

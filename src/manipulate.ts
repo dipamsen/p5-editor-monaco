@@ -3,7 +3,7 @@ import { emmetHTML, emmetCSS } from "emmet-monaco-es";
 import * as Snippets from "./snippets.json";
 import p5Def from "./p5.global.txt";
 import editor from "./EditorInstance";
-import { iFrameElt } from "./DOMElements";
+import { consoleLogs, iFrameElt } from "./DOMElements";
 import Prettier from "prettier";
 import Babel from "prettier/parser-babel";
 const ESLint: typeof import("eslint") = require("./eslint");
@@ -157,6 +157,10 @@ export default function manipulate(M: typeof monaco) {
   window.addEventListener("message", (ev) => {
     if (ev.source == iFrameElt.contentWindow) {
       console.log(ev);
+      console.log(ev.data.map(JSON.parse));
+      const elt = document.createElement("div");
+      elt.textContent = ev.data;
+      consoleLogs.append(elt);
     }
   });
 }

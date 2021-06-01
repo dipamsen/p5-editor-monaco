@@ -11,7 +11,7 @@ function draw() {
 export const defaultHTML = `<!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/addons/p5.sound.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
@@ -38,4 +38,13 @@ console.log = function log(...args) {
   parent.postMessage(args)
   nativeConsoleLog.call(null, ...args)
 }
+const err = function () {
+  nativeConsoleLog(arguments)
+  parent.postMessage([...arguments].map(JSON.stringify))
+  return false;
+};
+onerror = err
+window.addEventListener("error", err)
+
+onunhandledrejection = err
 `;

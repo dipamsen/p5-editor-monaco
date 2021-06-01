@@ -38,27 +38,35 @@
       </div>
     </div>
     <div class="editor-pane">
-      <div class="filename">
-        <button class="toggle-files open-files">
-          <svg width="10" height="15" viewBox="0 0 10 15" xmlns="http://www.w3.org/2000/svg" focusable="false"
-            aria-hidden="true">
-            <path d="M7.802 8.598l-5.6 5.6-1.4-1.4 5.6-5.6-5.6-5.6 1.4-1.4 5.6 5.6 1.396 1.397z" fill="#333"
-              fill-rule="evenodd" opacity="0.54"></path>
-          </svg>
-        </button>
-        <button class="toggle-files close-files hide">
-          <svg width="10" height="15" viewBox="0 0 10 15" xmlns="http://www.w3.org/2000/svg" focusable="false"
-            aria-hidden="true">
-            <path d="M2.198 5.798l5.6-5.6 1.4 1.4-5.6 5.6 5.6 5.6-1.4 1.4-5.6-5.6L.802 7.202z" fill="#333"
-              fill-rule="evenodd" opacity="0.54"></path>
-          </svg>
-        </button>
-        <span class="name"></span>
+      <div class="editor-with-filename flex-col">
+        <div class="filename">
+          <button class="toggle-files open-files">
+            <svg width="10" height="15" viewBox="0 0 10 15" xmlns="http://www.w3.org/2000/svg" focusable="false"
+              aria-hidden="true">
+              <path d="M7.802 8.598l-5.6 5.6-1.4-1.4 5.6-5.6-5.6-5.6 1.4-1.4 5.6 5.6 1.396 1.397z" fill="#333"
+                fill-rule="evenodd" opacity="0.54"></path>
+            </svg>
+          </button>
+          <button class="toggle-files close-files hide">
+            <svg width="10" height="15" viewBox="0 0 10 15" xmlns="http://www.w3.org/2000/svg" focusable="false"
+              aria-hidden="true">
+              <path d="M2.198 5.798l5.6-5.6 1.4 1.4-5.6 5.6 5.6 5.6-1.4 1.4-5.6-5.6L.802 7.202z" fill="#333"
+                fill-rule="evenodd" opacity="0.54"></path>
+            </svg>
+          </button>
+          <span class="name"></span>
+        </div>
+        <div class="editor-container">
+          <div id="editor"></div>
+        </div>
       </div>
-      <div class="editor-container">
-        <div id="editor"></div>
+      <div class="console-resizer"></div>
+      <div class="console-pane">
+        <div class="console-top-bar">
+          <div class="console-title">Console</div>
+          <button class="console-clear">Clear</button>
+        </div>
       </div>
-      <div class="console"></div>
     </div>
     <div class="resizer"></div>
     <div class="output-pane">
