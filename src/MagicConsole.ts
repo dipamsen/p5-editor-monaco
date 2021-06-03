@@ -11,7 +11,7 @@ class MagicConsole {
   }
   static append(elt: HTMLElement) {
     consoleLogs.append(elt);
-    elt.scrollIntoView(false);
+    // elt.scrollIntoView(false);
   }
 }
 

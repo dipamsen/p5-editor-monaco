@@ -31,3 +31,5 @@ export const consoleLogs =
 
 export const consoleClear =
   document.querySelector<HTMLButtonElement>(".console-clear");
+
+export const resizers = document.querySelectorAll(".resizer");

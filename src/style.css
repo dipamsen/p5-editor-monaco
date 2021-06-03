@@ -28,18 +28,21 @@ main {
 }
 
 .editor-pane {
-  width: 100%;
+  width: 60%;
   display: flex;
   flex-direction: column;
 }
 
 .console-pane {
-  height: 140px;
+  /* height: 140px; */
+  flex: 1;
   border: solid 1px grey;
   background-color: #333;
   border-top: 0;
   display: flex;
   flex-direction: column;
+  overflow: auto;
+  z-index: 2;
 }
 
 .editor-container {
@@ -52,7 +55,7 @@ main {
 }
 
 .output-pane {
-  width: 100%;
+  flex: 1;
 }
 
 iframe {
@@ -161,8 +164,10 @@ header > * {
   width: 10px;
   cursor: col-resize;
 }
-.console-resizer {
+
+.resizer[data-direction="vertical"] {
   height: 10px;
+  width: 100%;
   cursor: row-resize;
   margin: -8px 0;
   flex-shrink: 0;
