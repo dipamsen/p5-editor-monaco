@@ -16,6 +16,7 @@ export const iFrameElt = document.querySelector("iframe");
 export const mainElt = document.querySelector("main");
 
 export const fileChooser = document.querySelector<HTMLDivElement>(".files");
+
 export const filePickerMain =
   document.querySelector<HTMLDivElement>(".filepicker");
 
@@ -25,4 +26,8 @@ export const openFileList =
 export const closeFileList =
   document.querySelector<HTMLButtonElement>(".close-files");
 
-export const consoleLogs = document.querySelector<HTMLDivElement>(".console");
+export const consoleLogs =
+  document.querySelector<HTMLDivElement>(".console-logs");
+
+export const consoleClear =
+  document.querySelector<HTMLButtonElement>(".console-clear");

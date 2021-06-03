@@ -12,6 +12,7 @@ import CustomDef from "./assets/custom-def.d.ts";
 /** @ts-ignore */
 import GlobalDef from "./assets/p5/global.d.ts";
 import ColorProvider from "./ColorProvider";
+import MagicConsole from "./MagicConsole";
 
 const S = Array.from(Snippets) as Snippet[];
 interface Snippet {
@@ -157,10 +158,10 @@ export default function manipulate(M: typeof monaco) {
   window.addEventListener("message", (ev) => {
     if (ev.source == iFrameElt.contentWindow) {
       console.log(ev);
-      console.log(ev.data.map(JSON.parse));
+      // console.log(ev.data.map(JSON.parse));
       const elt = document.createElement("div");
       elt.textContent = ev.data;
-      consoleLogs.append(elt);
+      MagicConsole.append(elt);
     }
   });
 }
