@@ -34,14 +34,14 @@ main {
 }
 
 .console-pane {
-  /* height: 140px; */
-  flex: 1;
+  height: 40%;
+  /* flex: 1; */
+
   border: solid 1px grey;
   background-color: #333;
   border-top: 0;
   display: flex;
   flex-direction: column;
-  overflow: auto;
   z-index: 2;
 }
 
@@ -54,9 +54,8 @@ main {
   height: 100%;
 }
 
-.output-pane {
-  flex: 1;
-}
+/* .output-pane {
+} */
 
 iframe {
   width: 100%;
@@ -64,7 +63,7 @@ iframe {
 }
 
 .editor-with-filename {
-  height: 320px;
+  height: 60%;
 }
 
 .filepicker {

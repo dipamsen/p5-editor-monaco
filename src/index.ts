@@ -10,6 +10,7 @@ import editor from "./EditorInstance";
 import {
   closeFileList,
   filePickerMain,
+  mainElt,
   openFileList,
   runnerElt,
   stopperElt,
@@ -92,20 +93,28 @@ const resizable = function (resizer: HTMLElement) {
     const dy = e.clientY - y;
 
     switch (direction) {
-      case "vertical":
-        const h =
+      case "vertical": {
+        let h =
           ((prevSiblingHeight + dy) * 100) /
           resizer.parentElement.getBoundingClientRect().height;
+        h = h < 20 ? 20 : h > 80 ? 80 : h;
         prevSibling.style.height = `${h}%`;
+        nextSibling.style.height = `${100 - h}%`;
         break;
+      }
       case "horizontal":
-      default:
-        const w =
+      default: {
+        let w =
           ((prevSiblingWidth + dx) * 100) /
           resizer.parentElement.getBoundingClientRect().width;
+        w = w < 10 ? 10 : w > 90 ? 90 : w;
         prevSibling.style.width = `${w}%`;
+        nextSibling.style.width = `${100 - w}%`;
         break;
+      }
     }
+    prevSibling.onresize?.(new UIEvent("resize"));
+    nextSibling.onresize?.(new UIEvent("resize"));
 
     const cursor = direction === "horizontal" ? "col-resize" : "row-resize";
     resizer.style.cursor = cursor;
@@ -141,3 +150,11 @@ const resizable = function (resizer: HTMLElement) {
 };
 
 document.querySelectorAll(".resizer").forEach(resizable);
+
+mainElt.style.height = `${
+  document.body.clientHeight -
+  document.querySelector(".toolbar").clientHeight -
+  document.querySelector("header").clientHeight -
+  parseInt(getComputedStyle(mainElt).paddingTop) -
+  parseInt(getComputedStyle(mainElt).paddingBottom)
+}px`;

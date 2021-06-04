@@ -1,4 +1,4 @@
-import { consoleClear, consoleLogs } from "./DOMElements";
+import { consoleClear, consoleLogs, mainElt } from "./DOMElements";
 
 class MagicConsole {
   static logs: string[] = [];
@@ -12,6 +12,9 @@ class MagicConsole {
   static append(elt: HTMLElement) {
     consoleLogs.append(elt);
     // elt.scrollIntoView(false);
+    const topBar = consoleLogs.parentElement.previousElementSibling;
+    const full = consoleLogs.parentElement.parentElement;
+    consoleLogs.style.height = full.clientHeight - topBar.clientHeight + "px";
   }
 }
 

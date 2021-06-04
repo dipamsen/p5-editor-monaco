@@ -17,9 +17,5 @@ window.layout = (arg) => editor.layout(arg);
 
 editor;
 
-window.onresize = () =>
-  editor.layout({
-    width: (mainElt.clientWidth - filePickerMain.clientWidth) / 2,
-    height: editorContainerElt.firstElementChild.clientHeight,
-  });
+window.onresize = () => editor.layout();
 export default editor;
