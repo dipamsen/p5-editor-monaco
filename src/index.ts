@@ -138,7 +138,7 @@ const resizable = function (resizer: HTMLElement) {
 
       nextSibling.style.removeProperty("user-select");
       nextSibling.style.removeProperty("pointer-events");
-    });
+    }, 100);
 
     // Remove the handlers of `mousemove` and `mouseup`
     document.removeEventListener("mousemove", mouseMoveHandler);

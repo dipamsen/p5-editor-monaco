@@ -28,13 +28,13 @@ main {
 }
 
 .editor-pane {
-  width: 60%;
+  width: 40%;
   display: flex;
   flex-direction: column;
 }
 
 .console-pane {
-  height: 40%;
+  height: 30%;
   /* flex: 1; */
 
   border: solid 1px grey;
@@ -63,7 +63,7 @@ iframe {
 }
 
 .editor-with-filename {
-  height: 60%;
+  height: 70%;
 }
 
 .filepicker {
