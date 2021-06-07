@@ -132,14 +132,13 @@ const resizable = function (resizer: HTMLElement) {
   const mouseUpHandler = function () {
     resizer.style.removeProperty("cursor");
     document.body.style.removeProperty("cursor");
-    setTimeout(() => {
-      prevSibling.style.removeProperty("user-select");
-      prevSibling.style.removeProperty("pointer-events");
+    prevSibling.style.removeProperty("user-select");
+    prevSibling.style.removeProperty("pointer-events");
 
-      nextSibling.style.removeProperty("user-select");
-      nextSibling.style.removeProperty("pointer-events");
-    }, 100);
+    nextSibling.style.removeProperty("user-select");
+    nextSibling.style.removeProperty("pointer-events");
 
+    getSelection().removeAllRanges();
     // Remove the handlers of `mousemove` and `mouseup`
     document.removeEventListener("mousemove", mouseMoveHandler);
     document.removeEventListener("mouseup", mouseUpHandler);

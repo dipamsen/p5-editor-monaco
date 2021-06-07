@@ -31,7 +31,12 @@
     <div class="spacer"></div>
 
     <div class="filepicker hidden">
-      <div class="filepicker__title">Sketch Files</div>
+      <div class="filepicker__topbar">
+        <div class="filepicker__title">
+          Sketch Files
+        </div>
+        <div class="filepicker__menu"></div>
+      </div>
       <div class="flex">
         <div class="spacer"></div>
         <div class="files"></div>
@@ -75,7 +80,7 @@
     <div class="resizer"></div>
     <div class="output-pane">
       <div class="output__title">Preview</div>
-      <iframe srcdoc="" frameborder="0" title="sketch preview"
+      <iframe class="preview-frame" srcdoc="" frameborder="0" title="sketch preview"
         sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-forms allow-modals allow-downloads"></iframe>
     </div>
   </main>

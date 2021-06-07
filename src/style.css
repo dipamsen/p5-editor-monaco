@@ -54,12 +54,13 @@ main {
   height: 100%;
 }
 
-/* .output-pane {
-} */
+.output-pane {
+  width: 60%;
+}
 
-iframe {
-  width: 100%;
-  height: 100%;
+.preview-frame {
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .editor-with-filename {
