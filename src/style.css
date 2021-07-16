@@ -209,3 +209,12 @@ header > * {
   display: flex;
   flex-direction: column;
 }
+
+.dialog-box {
+  position: absolute;
+  top: 6rem;
+  left: 50%;
+  width: 400px;
+  background-color: #333;
+  transform: translate(-50%);
+}

@@ -107,6 +107,32 @@ export default function manipulate(M: typeof monaco) {
     g.toString()
   );
   M.editor.createModel(GlobalDef, "typescript", g);
+
+  // @ts-ignore
+  window.typings = {
+    add(uri: string, name: string) {
+      fetch(uri)
+        .then((r) => r.text())
+        .then((lib) => {
+          const u = M.Uri.file(`${name}.d.ts`);
+          M.languages.typescript.javascriptDefaults.addExtraLib(
+            lib,
+            u.toString()
+          );
+          M.editor.createModel(lib, "typescript", u);
+        });
+    },
+  };
+
+  // @ts-ignore
+  // Helper Function for Matter.js
+  window.addMatterJS = () => {
+    // @ts-ignore
+    window.typings.add(
+      "https://cdn.jsdelivr.net/gh/DefinitelyTyped/DefinitelyTyped/types/matter-js/index.d.ts",
+      "Matter"
+    );
+  };
   // Add p5.js AutoComplete + IntelliSense
   // const url = M.Uri.file("p5.global.d.ts");
   // M.languages.typescript.javascriptDefaults.addExtraLib(p5Def, url.toString());
